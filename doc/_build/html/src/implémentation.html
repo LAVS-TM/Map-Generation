@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implémentation &#8212; Documentation PTON 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="Générateur de ville: Projet PTON" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PTON</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Implémentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#generation-de-la-carte">Génération de la carte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decoupage-des-districts">Découpage des districts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generation-des-murs">Génération des murs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generation-des-batiments">Génération des bâtiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generation-du-chateau">Génération du Château</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assignement-des-zones">Assignement des zones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#types-de-zones">Types de zones</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="Chapitre précédent">Générateur de ville: Projet PTON</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="implementation">
+<h1>Implémentation<a class="headerlink" href="#implementation" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="generation-de-la-carte">
+<h2>Génération de la carte<a class="headerlink" href="#generation-de-la-carte" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/area.py&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city.py&gt;</span></code></p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="generate_regions">
+<span class="sig-name descname"><span class="pre">generate_regions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regions_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#generate_regions" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Génere les régions globales</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>regions_size</strong> (<code class="docutils literal notranslate"><span class="pre">Integer</span></code>) – La taille donnée pour calculer le diagramme de <strong>Voronoi</strong></p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p>Une liste de <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> correspondant aux régions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>La génération de la carte est la premiere étape dans nos algorithmes.
+Elle prend en paramètre une taille qui est prédéfinie grâce à la population donnée au début du programme.
+L’algorithme place des points répartis linéairement sur une certaine surface, puis les déplaces dans une direction aléatoire.
+Il calcule ensuite un diagramme de <strong>Voronoi</strong> dans lequel nous récupérons les régions qui nous intéresse pour la suite.</p>
+</div>
+<div class="section" id="decoupage-des-districts">
+<h2>Découpage des districts<a class="headerlink" href="#decoupage-des-districts" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city.py&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/map.py&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city_areas/district.py&gt;</span></code></p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="split_region">
+<span class="sig-name descname"><span class="pre">split_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">road_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#split_region" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Découpe les régions avec une route nouvellement crée</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>regions</strong> – L’ensemble des <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> calculés précédemment</p></li>
+<li><p><strong>road_size</strong> (<code class="docutils literal notranslate"><span class="pre">Integer</span></code>) – La taille des routes entre les districts</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>Une liste des <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> représentant les districts et un <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> ou <code class="docutils literal notranslate"><span class="pre">MultiPolgon</span></code> représentant les routes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Une fois les régions généré, il nous faut les découper pour obtenir des districts séparés.
+Par une suite d’intersection et de différence de <code class="docutils literal notranslate"><span class="pre">Polygon</span></code>, l’algorithmes découpe les régions et crée des routes entre elles.
+Nous récupérons donc en sortie toutes les régions ainsi que les routes.</p>
+</div>
+<div class="section" id="generation-des-murs">
+<h2>Génération des murs<a class="headerlink" href="#generation-des-murs" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city_areas/wall.py&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city.py&gt;</span></code></p></li>
+</ul>
+<p>La génération des murs se fait assez facilement en retracant un contour de toute nos régions.
+Les murs nous servent également dans la suite de nos algorithmes, notamment pour retrouver le centre de la ville et placer nos bâtiments en conséquences.</p>
+</div>
+<div class="section" id="generation-des-batiments">
+<h2>Génération des bâtiments<a class="headerlink" href="#generation-des-batiments" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city.py&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/map.py&gt;</span></code></p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="generate_buildings">
+<span class="sig-name descname"><span class="pre">generate_buildings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regions_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">district</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#generate_buildings" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Génere un découpage de zones pour un district donné</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>regions_size</strong> – La taille des séparation entre les zones</p></li>
+<li><p><strong>district</strong> – Une des régions de notre carte</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>Une liste des <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> représentant les zones découpés dans un district</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>L’objectif ici est de découper les différents districts de notre carte pour pouvoir y placer des bâtiments.
+Uniquement les zones contenant des maisons ainsi que des bâtiments du centre ville, par rapport au éléments extérieurs comme les champs et fermes qui eux, ne sont pas découpés.</p>
+<p>De nouveaux points sont donc placés linéairement dans le district, ainsi que sur ses bords, pour calculer un nouveau diagramme de <strong>Voronoi</strong> et y extraire nos zones.</p>
+</div>
+<div class="section" id="generation-du-chateau">
+<h2>Génération du Château<a class="headerlink" href="#generation-du-chateau" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/downtown/castle.py&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city.py&gt;</span></code></p></li>
+</ul>
+<p>La génération du <code class="docutils literal notranslate"><span class="pre">Castle</span></code> peut se faire selon différentes heuristiques.
+Il a besoin d’être centré dans notre ville, et d’occuper une zone qui est assez grande.</p>
+<p>Nous parcourons donc les 10% des bâtiments les plus au centre dans notre ville et nous choisissons le plus grand emplacement parmis ceux-ci.</p>
+</div>
+<div class="section" id="assignement-des-zones">
+<h2>Assignement des zones<a class="headerlink" href="#assignement-des-zones" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/downtown/*&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/countrysides/*&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/map.py&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city.py&gt;</span></code></p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="build_map">
+<span class="sig-name descname"><span class="pre">build_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">district</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_elements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city_elements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_houses</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#build_map" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Assigne un certain type de bâtiments aux zones de notre ville.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>district</strong> – L’ensemble des districts de notre ville</p></li>
+<li><p><strong>map_elements</strong> – Toutes les zones de notre ville</p></li>
+<li><p><strong>city_elements</strong> – Les zones de notre ville découpée pour accueillir une maison ou un bâtiments de centre-ville</p></li>
+<li><p><strong>nb_houses</strong> – Le nombre de parcelles découpées pouvant accueillir une maison ou un bâtiments de centre-ville</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>Les districts avec les batiments ajoutés à leur aires</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Une fois que la totalité de notre ville a été découpé, il nous faut maintenant assigner un certains types de bâtiments à toutes ces zones.
+Nous assignons en premier les bâtiments du centre-ville sur les zones découpés, puis les types de campagnes sur les zones au bord de notre ville.
+L’assignation se fait selon une certaine distribution, selon si l’on veut plus ou moins de ce type de bâtiments dans notre ville.</p>
+<p>Une fois le processus terminé, nous avons donc obtenu notre ville finale !</p>
+</div>
+<div class="section" id="types-de-zones">
+<h2>Types de zones<a class="headerlink" href="#types-de-zones" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Voici les différentes formes que peuvent prendre les zones de la ville:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Castle</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cathedral</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Church</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Farm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Field</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Forest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Fort</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Garden</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">House</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Lake</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Land</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mansion</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Market</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Monastry</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Park</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Townhall</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">University</span></code></p></li>
+</ul>
+<p>Pour <cite>House</cite> et <cite>Mansion</cite>, le polygone représentatif est composé d’un <cite>Garden</cite> en son centre.
+Les autres zones restent pleines mais changent de couleur lors de la visualisation.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021, Alexandre Lemonnier / Victor Simonin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/src/implémentation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

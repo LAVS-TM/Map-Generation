@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Générateur de ville: Projet PTON &#8212; Documentation PTON 1.0</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Implémentation" href="src/impl%C3%A9mentation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">PTON</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="src/impl%C3%A9mentation.html">Implémentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="src/impl%C3%A9mentation.html" title="Chapitre suivant">Implémentation</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="generateur-de-ville-projet-pton">
+<h1>Générateur de ville: Projet PTON<a class="headerlink" href="#generateur-de-ville-projet-pton" title="Lien permanent vers ce titre">¶</a></h1>
+<p>L’objectif de ce projet est de pouvoir générer et visualiser le plan d’une ville à partir de certaines conditions.</p>
+<div class="section" id="utilisation">
+<h2>Utilisation<a class="headerlink" href="#utilisation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour configurer la génération de la ville, ouvrez <code class="docutils literal notranslate"><span class="pre">city.py</span></code> dans <code class="docutils literal notranslate"><span class="pre">src</span></code> et modifiez les valeurs attribuées à l’objet <code class="docutils literal notranslate"><span class="pre">City</span></code>.
+La class <code class="docutils literal notranslate"><span class="pre">City</span></code> est de la forme:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">City</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="n">has_walls</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">has_castle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">has_river</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Vous pouvez aussi modifier le chemin où la ville générée sera enregistrée.
+Pour cela, modifier la chaîne de caractère passée en arguments à <code class="docutils literal notranslate"><span class="pre">tools.json</span></code>.
+Ce chemin sera important pour pouvoir lancer la visualisation ensuite.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le chemin par défaut utilisé par la visualisation est <code class="docutils literal notranslate"><span class="pre">/generated_city/city.json</span></code></p>
+</div>
+<p>Voici un exemple de configuration possible pour la ville à générer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="n">City</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">has_walls</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">has_castle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tools</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="s1">&#39;/generated_city/city.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pour lancer la génération:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">src</span><span class="o">/</span><span class="n">city</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Pour visualiser la génération:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">src</span><span class="o">/</span><span class="n">viewer</span><span class="o">.</span><span class="n">py</span> <span class="o">*</span><span class="n">chemin_du_fichier</span><span class="o">*</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="line-block">
+<div class="line">Les commandes ci-dessus doivent être lancé depuis la base du projet.</div>
+<div class="line">Sinon il faut modifier le chemin vers les fichiers <code class="docutils literal notranslate"><span class="pre">.py</span></code>.</div>
+</div>
+</div>
+<p>Voici un exemple de ville générée avec les paramètres présentés précédemment:</p>
+<img alt="_images/CityExample.png" src="_images/CityExample.png" />
+</div>
+<div class="section" id="specification">
+<h2>Spécification<a class="headerlink" href="#specification" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Ce projet a été réaliser sous Python, en utilisant les librairies suivantes:</p>
+<ul class="simple">
+<li><p>attrs==21.2.0</p></li>
+<li><p>certifi==2021.5.30</p></li>
+<li><p>click==8.0.1</p></li>
+<li><p>click-plugins==1.1.1</p></li>
+<li><p>cligj==0.7.2</p></li>
+<li><p>cycler==0.10.0</p></li>
+<li><p>Fiona==1.8.20</p></li>
+<li><p>geopandas==0.9.0</p></li>
+<li><p>iniconfig==1.1.1</p></li>
+<li><p>kiwisolver==1.3.1</p></li>
+<li><p>matplotlib==3.4.2</p></li>
+<li><p>munch==2.5.0</p></li>
+<li><p>numpy==1.21.1</p></li>
+<li><p>packaging==21.0</p></li>
+<li><p>pandas==1.2.5</p></li>
+<li><p>Pillow==8.3.0</p></li>
+<li><p>pluggy==0.13.1</p></li>
+<li><p>py==1.10.0</p></li>
+<li><p>pyparsing==2.4.7</p></li>
+<li><p>pyproj==3.1.0</p></li>
+<li><p>PyQt5==5.15.4</p></li>
+<li><p>PyQt5-Qt5==5.15.2</p></li>
+<li><p>PyQt5-sip==12.9.0</p></li>
+<li><p>pytest==6.2.4</p></li>
+<li><p>python-dateutil==2.8.1</p></li>
+<li><p>pytz==2021.1</p></li>
+<li><p>scipy==1.7.0</p></li>
+<li><p>Shapely==1.7.1</p></li>
+<li><p>six==1.16.0</p></li>
+<li><p>toml==0.10.2</p></li>
+<li><p>userprovided==0.9.1</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="index-et-recherche">
+<h2>Index et recherche<a class="headerlink" href="#index-et-recherche" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Page de recherche</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021, Alexandre Lemonnier / Victor Simonin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

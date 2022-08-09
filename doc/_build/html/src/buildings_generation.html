@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Génération des batiments &#8212; Documentation PTON 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PTON</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="impl%C3%A9mentation.html">Implémentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="generation-des-batiments">
+<h1>Génération des batiments<a class="headerlink" href="#generation-des-batiments" title="Lien permanent vers ce titre">¶</a></h1>
+<ul class="simple">
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city.py&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/map.py&gt;</span></code></p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="generate_buildings">
+<span class="sig-name descname"><span class="pre">generate_buildings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regions_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">district</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#generate_buildings" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Génere un découpage de zones pour un district donné</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>regions_size</strong> – La taille des séparation entre les zones</p></li>
+<li><p><strong>district</strong> – Une des régions de notre carte</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>Une liste des <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> représentant les zones découpés dans un district</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>L’objectif ici est de découper les différents districts de notre carte pour pouvoir y placer des batiments.
+Uniquement les zones contenant des maisons ainsi que des batiments du centre ville, par rapport au éléments exterieurs comme les champs et fermes qui eux, ne sont pas découpés.</p>
+<p>De nouveaux points sont donc placés linéairement dans le district, ainsi que sur ses bords, pour calculer un nouveau diagramme de Voronoi et y extraire nos zones.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021, Alexandre Lemonnier / Victor Simonin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/src/buildings_generation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,23 @@
+Découpage des districts
+========================
+
+* Include :file:`<src/city.py>`
+* Include :file:`<src/map.py>`
+* Include :file:`<src/city_areas/district.py>`
+
+
+
+.. function:: split_region(regions, road_size)
+
+   Découpe les régions avec une route nouvellement crée
+
+   :param regions: L'ensemble des ``Polygon`` calculés précédemment
+   :param road_size: La taille des routes entre les districts
+   :type road_size: ``Integer``
+   :return: Une liste des ``Polygon`` représentant les districts et un ``Polygon`` ou ``MultiPolgon`` représentant les routes
+
+
+Une fois les régions généré, il nous faut les découper pour obtenir des districts séparés.
+Par une suite d'intersection et de différence de ``Polygon``, l'algorithmes découpe les régions et crée des routes entre elles.
+Nous récupérons donc en sortie toutes les régions ainsi que les routes.
+

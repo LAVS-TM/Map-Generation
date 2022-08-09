@@ -1,0 +1,9 @@
+Génération des murs
+==================================
+
+* Include :file:`<src/city_areas/wall.py>`
+* Include :file:`<src/city.py>`
+
+La génération des murs se fait assez facilement en retracant un contour de toute nos régions.
+Les murs nous servent également dans la suite de nos algorithmes, notamment pour retrouver le centre de la ville et placer nos batiments en conséquences.
+

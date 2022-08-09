@@ -1,0 +1,20 @@
+Génération de la carte
+=======================
+
+* Include :file:`<src/area.py>`
+* Include :file:`<src/city.py>`
+
+.. function:: generate_regions(regions_size)
+
+   Génere les régions globales
+
+   :param regions_size: La taille donnée pour calculer le diagramme de **Voronoi**
+   :type regions_size: ``Integer``
+   :rtype: Une liste de ``Polygon`` correspondant aux régions
+
+
+La génération de la carte est la premiere étape dans nos algorithmes.
+Elle prend en parametre une taille qui est prédéfinie grace a la population donnée au début du programme.
+L'algorithmes place des points de répartis linéairement sur une certaine surface,
+il calcule ensuite un diagramme de **Voronoi** dans lequel nous récupérons les régions qui nous intéresse pour la suite.
+

@@ -1,0 +1,20 @@
+Génération des batiments
+========================
+
+* Include :file:`<src/city.py>`
+* Include :file:`<src/map.py>`
+
+.. function:: generate_buildings(regions_size, district)
+
+   Génere un découpage de zones pour un district donné
+
+   :param regions_size: La taille des séparation entre les zones
+   :param district: Une des régions de notre carte
+   :return: Une liste des ``Polygon`` représentant les zones découpés dans un district
+
+
+L'objectif ici est de découper les différents districts de notre carte pour pouvoir y placer des batiments.
+Uniquement les zones contenant des maisons ainsi que des batiments du centre ville, par rapport au éléments exterieurs comme les champs et fermes qui eux, ne sont pas découpés.
+
+De nouveaux points sont donc placés linéairement dans le district, ainsi que sur ses bords, pour calculer un nouveau diagramme de Voronoi et y extraire nos zones.
+

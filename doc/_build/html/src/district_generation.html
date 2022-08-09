@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Découpage des districts &#8212; Documentation PTON 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">PTON</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="impl%C3%A9mentation.html">Implémentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="decoupage-des-districts">
+<h1>Découpage des districts<a class="headerlink" href="#decoupage-des-districts" title="Lien permanent vers ce titre">¶</a></h1>
+<ul class="simple">
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city.py&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/map.py&gt;</span></code></p></li>
+<li><p>Include <code class="file docutils literal notranslate"><span class="pre">&lt;src/city_areas/district.py&gt;</span></code></p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="split_region">
+<span class="sig-name descname"><span class="pre">split_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">road_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#split_region" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Découpe les régions avec une route nouvellement crée</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>regions</strong> – L’ensemble des <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> calculés précédemment</p></li>
+<li><p><strong>road_size</strong> (<code class="docutils literal notranslate"><span class="pre">Integer</span></code>) – La taille des routes entre les districts</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>Une liste des <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> représentant les districts et un <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> ou <code class="docutils literal notranslate"><span class="pre">MultiPolgon</span></code> représentant les routes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Une fois les régions généré, il nous faut les découper pour obtenir des districts séparés.
+Par une suite d’intersection et de différence de <code class="docutils literal notranslate"><span class="pre">Polygon</span></code>, l’algorithmes découpe les régions et crée des routes entre elles.
+Nous récupérons donc en sortie toutes les régions ainsi que les routes.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021, Alexandre Lemonnier / Victor Simonin.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/src/district_generation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,26 @@
+Assignement des zones
+=====================
+
+* Include :file:`<src/downtown/*>`
+* Include :file:`<src/countrysides/*>`
+* Include :file:`<src/map.py>`
+* Include :file:`<src/city.py>`
+
+
+.. function:: build_map(district, map_elements, city_elements, nb_houses)
+
+   Assigne un certain type de batiments aux zones de notre ville.
+
+   :param district: L'ensemble des district de notre ville
+   :param map_elements: Toutes les zones de notre ville
+   :param city_elements: Les zones de notre ville découpé pour accueillir une maison ou un batiments de centre-ville
+   :param nb_houses: Le nombre de parcelles découpés pouvant accueillir une maison ou un batiments de centre-ville
+   :return: Les districts avec les batiments ajoutés a leur aires
+
+
+Une fois que la totalité de notre ville a été découpé, il nous faut maintenant assigner un certains types de batiments a toutes ces zones.
+Nous assignons en premier les batiments du centre-ville sur les zones découpés, puis les types de campagnes sur les zones au bord de notre ville.
+L'assignation se fait selon une certaine distribution, selon si l'on veut plus ou moins de ce type de batiments dans notre ville.
+
+Une fois le processus terminé, nous avons donc obtenu notre ville finale !
+

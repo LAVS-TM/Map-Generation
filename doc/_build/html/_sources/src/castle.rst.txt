@@ -1,0 +1,10 @@
+Génération du Chateau
+======================
+
+* Include :file:`<src/downtown/castle.py>`
+* Include :file:`<src/city.py>`
+
+La génération du ``Castle`` peut se faire selon différentes heuristiques.
+Il a besoin d'etre centré dans notre ville, et d'occuper une zone qui est assez grande.
+
+Nous parcourons donc les 10% des batiments les plus au centre dans notre ville et nous choisissons le plus grand emplacement parmis ceux-ci.
