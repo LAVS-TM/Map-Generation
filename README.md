@@ -50,3 +50,69 @@ You just need to run :
 ```python
 python displayIA.py
 ```
+
+## Specifications
+
+This project was carried out in Python, using the following libraries:
+
+* attrs==21.2.0
+
+* certifi==2021.5.30
+
+* click==8.0.1
+
+* click-plugins==1.1.1
+
+* cligj==0.7.2
+
+* cycler==0.10.0
+
+* Fiona==1.8.20
+
+* geopandas==0.9.0
+
+* iniconfig==1.1.1
+
+* kiwisolver==1.3.1
+
+* matplotlib==3.4.2
+
+* munch==2.5.0
+
+* numpy==1.21.1
+
+* packaging==21.0
+
+* pandas==1.2.5
+
+* Pillow==8.3.0
+
+* pluggy==0.13.1
+
+* py==1.10.0
+
+* pyparsing==2.4.7
+
+* pyproj==3.1.0
+
+* PyQt5==5.15.4
+
+* PyQt5-Qt5==5.15.2
+
+* PyQt5-sip==12.9.0
+
+* pytest==6.2.4
+
+* python-dateutil==2.8.1
+
+* pytz==2021.1
+
+* scipy==1.7.0
+
+* Shapely==1.7.1
+
+* six==1.16.0
+
+* toml==0.10.2
+
+* userprovided==0.9.1
