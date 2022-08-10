@@ -48,6 +48,9 @@ Here is an example of a **city** generated with the parameters presented previou
 
 <img src="https://github.com/LAVS-TM/Map-Generation/blob/main/doc/CityExample.png" alt="Example city">
 
+## Documentation
+
+The full **documentation** of the project and the **technical implementation** are available in the repository in `/doc/_build/html/index.html`.
 
 ## Specifications
 
