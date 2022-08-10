@@ -22,6 +22,33 @@ The **default path** used by the visualization is `/generated_city/city.json`
 
 ---
 
+Here is an example of a possible **configuration** for the city to be generated:
+
+```python
+city = City(10000, 10000, has_walls=True, has_castle=True)
+tools.json(city, '/generated_city/city.json')
+```
+
+To start the generation:
+
+```python
+python3 src/city.py
+```
+
+To visualize the generation:
+
+```python
+python3 src/viewer.py *file_path*
+```
+
+---
+The above commands must be run from the **project database**. Otherwise you have to modify the path to the `.py` files.
+
+---
+
+
+
+
 ## Specifications
 
 This project was carried out in Python, using the following libraries:
