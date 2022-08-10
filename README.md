@@ -1,7 +1,7 @@
 # Map-Generation [![Profile][title-img]][profile]
 
-[title-img]:https://img.shields.io/badge/-Bictole-pink
-[profile]:https://github.com/bictole
+[title-img]:https://img.shields.io/badge/-LAVS-blue
+[profile]:https://github.com/LAVS-TM
 
 This is the repository for a python chess engine with an **Q-Learning** IA. The goal was to have fun with artificial intelligence and to step up our knowledge on **reinforcement learning** !
 
