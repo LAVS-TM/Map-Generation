@@ -5,8 +5,6 @@
 
 This goal of this project was to create a **medieval city generator** with python and several constraints. The repository is composed of the **source code**, the **documentation** and the **tests folder**.
 
-<img src="https://github.com/Bictole/ChessAI/blob/master/readme_images/cli.png" alt="CLI">
-
 ### Usage
 
 To configure the city generation, you need to open `city.py` in the `src` folder and modify the values assigned to the City object. The **City** class is of the form:
@@ -46,7 +44,9 @@ The above commands must be run from the **project database**. Otherwise you have
 
 ---
 
+Here is an example of a **city** generated with the parameters presented previously:
 
+<img src="https://github.com/LAVS-TM/Map-Generation/blob/main/doc/CityExample.png" alt="Example city">
 
 
 ## Specifications
