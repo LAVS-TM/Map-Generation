@@ -3,10 +3,10 @@
 [title-img]:https://img.shields.io/badge/-LAVS-blue
 [profile]:https://github.com/LAVS-TM
 
-This goal of this project was to create a **medieval city generator** with python.
+This goal of this project was to create a **medieval city generator** with python and several constraints. The repository is composed of the **source code**, the **documentation** and the **tests folder**.
 
 
-## Chess Engine
+## The objective
 
 The Chess Engine is available in the file `board.py`. It is a really simple engine that let us play chess game.
 
