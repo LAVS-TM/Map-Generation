@@ -9,11 +9,11 @@ This goal of this project was to create a **medieval city generator** with pytho
 
 ### Usage
 
-A small reference chess game with the demonstration of the AI is available.
-You just need to run :
+To configure the city generation, you need to open `city.py` in the `src` folder and modify the values assigned to the City object. The **City** class is of the form:
 
 ```python
-python displayIA.py
+City(population, density, has_walls=False, has_castle=False, has_river=False)
+
 ```
 
 ## Specifications
