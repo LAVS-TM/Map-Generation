@@ -13,8 +13,14 @@ To configure the city generation, you need to open `city.py` in the `src` folder
 
 ```python
 City(population, density, has_walls=False, has_castle=False, has_river=False)
-
 ```
+
+You can also change the path where the **generated city** will be saved. To do this, modify the character string passed as arguments to `tools.json`. This path will be important to be able to launch the visualization afterwards.
+
+---
+The **default path** used by the visualization is `/generated_city/city.json`
+
+---
 
 ## Specifications
 
