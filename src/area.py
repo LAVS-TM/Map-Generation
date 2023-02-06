@@ -49,7 +49,7 @@ class Area():
         plot the map.
 
         Args:
-            polygon: Polygon - countour of the area
+            polygon: Polygon - contour of the area
             category: Category - type of area
             sub_areas: list - list of sub areas if any
         """
